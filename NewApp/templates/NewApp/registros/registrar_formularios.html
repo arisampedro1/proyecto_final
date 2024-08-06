@@ -1,0 +1,111 @@
+{% extends 'NewApp/base.html' %}
+
+{% load static %}
+
+{% block main %}
+<section id="scroll" class="py-5">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 order-lg-2 text-center">
+                <div class="p-5"><img class="img-fluid rounded-circle" src="{% static 'NewApp/assets/img/04.jpg' %}" alt="..." /></div>
+            </div>
+            <div class="col-lg-6 order-lg-1">
+                <div class="p-5">
+                    <h2 class="display-4">Registrarme</h2>
+                    <p>Nos encantaría tener la oportunidad de trabajar juntos.</p>
+                    <p class="fw-bold text-decoration-underline fs-4">
+                        Solicita tu alta como cliente.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="py-3 bg-light">
+    <div class="container">
+        <form action="{% url 'registrar_formulario' %}" method="POST">
+            {% csrf_token %}
+            
+            <!-- Datos del Dueño -->
+            <h3>Datos del Dueño</h3>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="nombre" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" name="nombre" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="apellido" class="form-label">Apellido</label>
+                    <input type="text" class="form-control" id="apellido" name="apellido" required>
+                </div>
+            </div>
+            
+            <!-- Datos de la Empresa -->
+            <h3>Datos de la Empresa</h3>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="razon_social" class="form-label">Razón Social</label>
+                    <input type="text" class="form-control" id="razon_social" name="razon_social" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="cuil" class="form-label">CUIL</label>
+                    <input type="text" class="form-control" id="cuil" name="cuil" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="nombre_de_fantasia" class="form-label">Nombre de Fantasía</label>
+                    <input type="text" class="form-control" id="nombre_de_fantasia" name="nombre_de_fantasia" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="actividad_comercial" class="form-label">Actividad Comercial</label>
+                    <input type="text" class="form-control" id="actividad_comercial" name="actividad_comercial" required>
+                </div>
+            </div>
+            
+            <!-- Datos de la Ubicación -->
+            <h3>Datos de la Ubicación</h3>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="direccion" class="form-label">Dirección</label>
+                    <input type="text" class="form-control" id="direccion" name="direccion" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="localidad" class="form-label">Localidad</label>
+                    <input type="text" class="form-control" id="localidad" name="localidad" required>
+                </div>
+            </div>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="ciudad" class="form-label">Ciudad</label>
+                    <input type="text" class="form-control" id="ciudad" name="ciudad" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="pais" class="form-label">País</label>
+                    <input type="text" class="form-control" id="pais" name="pais" required>
+                </div>
+            </div>
+            
+            <!-- Datos de Contacto -->
+            <h3>Datos de Contacto</h3>
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label for="Tel" class="form-label">Teléfono</label>
+                    <input type="text" class="form-control" id="Tel" name="Tel" required>
+                </div>
+                <div class="col-md-6">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+            </div>
+            <div class="mb-3">
+                <label for="Tel_alternativo" class="form-label">Teléfono Alternativo</label>
+                <input type="text" class="form-control" id="Tel_alternativo" name="Tel_alternativo">
+            </div>
+
+            <button type="submit" class="btn btn-primary">Registrar</button>
+        </form>
+    </div>
+</section>
+
+{% endblock main %}
